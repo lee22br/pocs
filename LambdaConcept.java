@@ -33,7 +33,7 @@ public class LambdaConcept {
 
     private static void orderListByAge(List<People> listPeople) {
         System.out.println("Order by Age:");
-        listPeople.sort(new Comparator<People>() {
+        listPeople.sort(new Comparator<>() {
             @Override
             public int compare(People p1, People p2) {
                 return Integer.compare(p1.getAge(), p2.getAge());
@@ -46,7 +46,7 @@ public class LambdaConcept {
     private static void orderListByName(List<People> listPeople) {
         System.out.println("Order by Name:");
 
-        listPeople.sort(new Comparator<People>() {
+        listPeople.sort(new Comparator<>() {
             @Override
             public int compare(People p1, People p2){
                 return p1.getName().compareTo(p2.getName());
