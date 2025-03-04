@@ -16,7 +16,7 @@ public class StreamConcept {
                     System.out.println("mapping " + n);
                     return n * n;
                 })
-                .limit(2)
+                .limit(3)
                 .toList();
 
         twoEvenSquares.forEach(n -> System.out.println("List " + n));
