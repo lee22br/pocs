@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -6,7 +7,7 @@ public class StreamConcept {
 
     public static void main (String [] args){
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
-        List<String> names = Arrays.asList("Ana","Joao","Bruna","Pedro");
+        List<People> girls = People.getSample();
 
         List<Integer> twoEvenSquares =   numbers.stream()
                 .filter(n -> {
@@ -20,9 +21,16 @@ public class StreamConcept {
                 .limit(3)
                 .toList();
 
-        List<String> treeOrderAlfa = names.stream().limit(3).sorted().toList();
-        twoEvenSquares.forEach(n -> System.out.println("List " + n));
-        treeOrderAlfa.forEach(n -> System.out.println("Names " + n));
+        List<People> treeOrderAlfa = girls.stream().limit(3).sorted(Comparator.reverseOrder()).toList();
+        List<People> filterP = girls.stream().filter(p -> p.getName().startsWith("Ana")).toList();
+        List<People> filterAge = girls.stream().filter(p -> p.getAge()>22).sorted((p1, p2) -> Integer.compare(p1.getAge(),p2.getAge())).toList();
+        System.out.print("treeOrderAlfa: ");
+        treeOrderAlfa.forEach(n -> System.out.print(n.getName()+ ", "));
+        System.out.print("\n FilterP: ");
+        filterP.forEach(n -> System.out.print(n.getName()+", "));
+        System.out.print("\n filterAge: ");
+        filterAge.forEach(n -> System.out.print(n.getName()+"("+n.getAge()+"), "));
+
     }
 
 
