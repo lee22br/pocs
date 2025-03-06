@@ -30,8 +30,13 @@ public class StreamConcept {
         filterP.forEach(n -> System.out.print(n.getName()+", "));
         System.out.print("\n filterAge: ");
         filterAge.forEach(n -> System.out.print(n.getName()+"("+n.getAge()+"), "));
-
+        //Map
+        List<String> words = Arrays.asList("Oracle", "Java", "Magazine");
+        List<Integer> wordLengths =   words.stream().map(String::length).toList();
+        System.out.print("\n wordLengths: ");
+        wordLengths.forEach(n -> System.out.print(n+","));
     }
+
 
 
 }

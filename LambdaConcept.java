@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 
 public class LambdaConcept {
@@ -27,8 +28,8 @@ public class LambdaConcept {
         listPeople.sort((People p1, People p2) -> Integer.compare(p1.getAge(),p2.getAge()));
         System.out.println("Order by Age (Lambda):");
         listPeople.forEach(p -> System.out.println(p.getName()));
-
-        System.out.println("text {$1}");
+        avalLambdaExpression(listPeople, p -> p.getAge() > 30);
+        avalLambdaExpression(listPeople, p -> p.getName().startsWith("E"));
     }
 
     private static void orderListByAge(List<People> listPeople) {
@@ -83,5 +84,14 @@ public class LambdaConcept {
             }
         });
     }
+
+    public static void avalLambdaExpression(List<People> list, Predicate<People> predicate) {
+        list.forEach(n -> {
+            if(predicate.test(n)) {
+                System.out.println(n.getName() + " ");
+            }
+        });
+    }
+
 
 }
