@@ -35,6 +35,10 @@ public class StreamConcept {
         List<Integer> wordLengths =   words.stream().map(String::length).toList();
         System.out.print("\n wordLengths: ");
         wordLengths.forEach(n -> System.out.print(n+","));
+        //Map 2
+        List<Integer> ageList = girls.stream().map(People::getAge).sorted().toList();
+        System.out.print("\n ageList: ");
+        ageList.forEach(n -> System.out.print(n+","));
     }
 
 
