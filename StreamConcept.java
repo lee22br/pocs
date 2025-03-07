@@ -18,13 +18,16 @@ public class StreamConcept {
                     System.out.println("mapping " + n);
                     return n * n;
                 })
-                .limit(3)
+                .limit(2)
                 .toList();
+
 
         List<People> treeOrderAlfa = girls.stream().limit(3).sorted(Comparator.reverseOrder()).toList();
         List<People> filterP = girls.stream().filter(p -> p.getName().startsWith("Ana")).toList();
-        List<People> filterAge = girls.stream().filter(p -> p.getAge()>22).sorted((p1, p2) -> Integer.compare(p1.getAge(),p2.getAge())).toList();
-        System.out.print("treeOrderAlfa: ");
+        List<People> filterAge = girls.stream().filter(p -> p.getAge()>22).sorted(Comparator.comparingInt(People::getAge)).toList();
+        System.out.print("twoEvenSquares: ");
+        twoEvenSquares.forEach(n -> System.out.print(n+ ", "));
+        System.out.print("\n treeReverseOrderAlfa: ");
         treeOrderAlfa.forEach(n -> System.out.print(n.getName()+ ", "));
         System.out.print("\n FilterP: ");
         filterP.forEach(n -> System.out.print(n.getName()+", "));
