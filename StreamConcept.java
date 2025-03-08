@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 
 public class StreamConcept {
@@ -42,6 +43,14 @@ public class StreamConcept {
         List<Integer> ageList = girls.stream().map(People::getAge).sorted().toList();
         System.out.print("\n ageList: ");
         ageList.forEach(n -> System.out.print(n+","));
+
+        // Infinit Stream
+        Stream<Integer> numbers10 = Stream.iterate(0, n -> n + 10);
+        //multi 10 (first 9)
+        List<Integer> multi10 = numbers10.filter(n -> n!=0).limit(9).toList();
+        System.out.print("\n First 9 numbers multi 10: ");
+        multi10.forEach(n -> System.out.print(n+","));
+
     }
 
 
