@@ -29,7 +29,10 @@ public class StreamConcept {
         System.out.print("twoEvenSquares: ");
         twoEvenSquares.forEach(n -> System.out.print(n+ ", "));
         System.out.print("\n treeReverseOrderAlfa: ");
+        long start = System.currentTimeMillis();
         treeOrderAlfa.forEach(n -> System.out.print(n.getName()+ ", "));
+        long elapsed = System.currentTimeMillis() - start;
+        System.out.print("\n normal Elapsed: "+elapsed);
         System.out.print("\n FilterP: ");
         filterP.forEach(n -> System.out.print(n.getName()+", "));
         System.out.print("\n filterAge: ");
@@ -50,6 +53,14 @@ public class StreamConcept {
         List<Integer> multi10 = numbers10.filter(n -> n!=0).limit(9).toList();
         System.out.print("\n First 9 numbers multi 10: ");
         multi10.forEach(n -> System.out.print(n+","));
+
+        //Parallel Stream
+        start = System.currentTimeMillis();
+        treeOrderAlfa = girls.parallelStream().limit(3).sorted(Comparator.reverseOrder()).toList();
+        elapsed = System.currentTimeMillis() - start;
+        System.out.print("\n treeReverseOrderAlfa: ");
+        treeOrderAlfa.forEach(n -> System.out.print(n.getName()+ ", "));
+        System.out.print("\n parallel Elapsed: "+elapsed);
 
     }
 
