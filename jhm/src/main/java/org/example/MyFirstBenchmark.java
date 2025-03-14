@@ -1,5 +1,7 @@
 package org.example;
 
+import org.openjdk.jmh.annotations.Benchmark;
+
 public class MyFirstBenchmark {
 
     public long sumArray(int[] array) {
