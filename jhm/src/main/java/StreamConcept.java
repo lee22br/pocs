@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class StreamConcept {
 
-    @Benchmark
+
     public static void main (String [] args){
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
         List<People> girls = People.getSample();
@@ -57,13 +57,21 @@ public class StreamConcept {
         System.out.print("\n First 9 numbers multi 10: ");
         multi10.forEach(n -> System.out.print(n+","));
 
-        //Parallel Stream
-        start = System.currentTimeMillis();
-        treeOrderAlfa = girls.parallelStream().limit(3).sorted(Comparator.reverseOrder()).toList();
-        elapsed = System.currentTimeMillis() - start;
         System.out.print("\n treeReverseOrderAlfa: ");
         treeOrderAlfa.forEach(n -> System.out.print(n.getName()+ ", "));
         System.out.print("\n parallel Elapsed: "+elapsed);
+    }
+
+    @Benchmark
+    public void parallelStream(){
+        List<People> girls = People.getSample();
+        List<People> treeOrderAlfa = treeOrderAlfa = girls.parallelStream().limit(3).sorted(Comparator.reverseOrder()).toList();
+
+    }
+
+    public void normalStream(){
+        List<People> girls = People.getSample();
+        List<People> treeOrderAlfa = treeOrderAlfa = girls.stream().limit(3).sorted(Comparator.reverseOrder()).toList();
     }
 
 
