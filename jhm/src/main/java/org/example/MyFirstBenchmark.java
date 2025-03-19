@@ -21,7 +21,7 @@ public class MyFirstBenchmark {
 
     public static void main (String[] args) throws IOException {
         org.openjdk.jmh.Main.main(args);
-        MyFirstBenchmark test = new MyFirstBenchmark();
-
+        StreamConcept test = new StreamConcept();
+        test.normalStream();
     }
 }
