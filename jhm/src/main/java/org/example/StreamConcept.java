@@ -1,6 +1,9 @@
 package org.example;
 
 import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Fork;
+import org.openjdk.jmh.annotations.Mode;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -9,7 +12,6 @@ import java.util.stream.Stream;
 
 
 public class StreamConcept {
-
     public StreamConcept(){
 
     }
@@ -66,17 +68,20 @@ public class StreamConcept {
         treeOrderAlfa.forEach(n -> System.out.print(n.getName()+ ", "));
         System.out.print("\n parallel Elapsed: "+elapsed);
     }
-
+;
     @Benchmark
+    @BenchmarkMode(Mode.All)
+    @Fork(value = 1, warmups = 1)
     public void parallelStream(){
         List<People> girls = People.getSample();
-        List<People> treeOrderAlfa = treeOrderAlfa = girls.parallelStream().limit(3).sorted(Comparator.reverseOrder()).toList();
-
+        List<People> treeOrderAlfa = treeOrderAlfa = girls.parallelStream().sorted(Comparator.reverseOrder()).toList();
     }
-
+    @Benchmark
+    @BenchmarkMode(Mode.All)
+    @Fork(value = 1, warmups = 1)
     public void normalStream(){
-        List<People> girls = People.getSample();
-        List<People> treeOrderAlfa = treeOrderAlfa = girls.stream().limit(3).sorted(Comparator.reverseOrder()).toList();
+        List<People> girls2 = People.getSample();
+        List<People> treeOrderAlfa = treeOrderAlfa = girls2.stream().sorted(Comparator.reverseOrder()).toList();
     }
 
 

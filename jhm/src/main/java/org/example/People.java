@@ -44,6 +44,14 @@ public class People implements Comparable<People>{
         result.add(p);
         p = new People("Ana Maria", 19);
         result.add(p);
+        p = new People("Jessica", 22);
+        result.add(p);
+        p = new People("Carol", 17);
+        result.add(p);
+        p = new People("Melina", 23);
+        result.add(p);
+        p = new People("Melissa", 27);
+        result.add(p);
         return result;
     }
 
