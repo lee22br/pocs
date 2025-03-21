@@ -1,17 +1,16 @@
 package org.example;
 
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Fork;
-import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.*;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 
 public class StreamConcept {
+    static List<People> girls = People.getSample(100000);
     public StreamConcept(){
 
     }
@@ -70,18 +69,20 @@ public class StreamConcept {
     }
 ;
     @Benchmark
-    @BenchmarkMode(Mode.All)
+    @BenchmarkMode(Mode.Throughput)
     @Fork(value = 1, warmups = 1)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Threads(8)
     public void parallelStream(){
-        List<People> girls = People.getSample();
-        List<People> treeOrderAlfa = treeOrderAlfa = girls.parallelStream().sorted(Comparator.reverseOrder()).toList();
+        List<People> treeOrderAlfa = girls.parallelStream().sorted(Comparator.reverseOrder()).toList();
     }
     @Benchmark
-    @BenchmarkMode(Mode.All)
+    @BenchmarkMode(Mode.Throughput)
     @Fork(value = 1, warmups = 1)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Threads(8)
     public void normalStream(){
-        List<People> girls2 = People.getSample();
-        List<People> treeOrderAlfa = treeOrderAlfa = girls2.stream().sorted(Comparator.reverseOrder()).toList();
+        List<People> treeOrderAlfa = girls.stream().sorted(Comparator.reverseOrder()).toList();
     }
 
 

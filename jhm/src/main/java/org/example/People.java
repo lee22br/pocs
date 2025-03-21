@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class People implements Comparable<People>{
     private String name;
@@ -26,6 +27,16 @@ public class People implements Comparable<People>{
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public static List<People> getSample(int size){
+        List<People> result = new ArrayList<>();
+        String nomes[] = {"Ana","Bruna","Cintia","Daniele","Fernanda","Ana Clara"};
+        Random random = new Random();
+        for (int i = 0; i < size; i++ ){
+            People p = new People(nomes[random.nextInt(0,5)], random.nextInt(1,100));
+        }
+        return result;
     }
 
     public static List<People> getSample(){
