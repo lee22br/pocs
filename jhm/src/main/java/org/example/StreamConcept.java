@@ -69,7 +69,7 @@ public class StreamConcept {
     }
 ;
     @Benchmark
-    @BenchmarkMode(Mode.Throughput)
+    @BenchmarkMode(Mode.SingleShotTime)
     @Fork(value = 1, warmups = 1)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @Threads(8)
@@ -77,7 +77,7 @@ public class StreamConcept {
         List<People> treeOrderAlfa = girls.parallelStream().sorted(Comparator.reverseOrder()).toList();
     }
     @Benchmark
-    @BenchmarkMode(Mode.Throughput)
+    @BenchmarkMode(Mode.SingleShotTime)
     @Fork(value = 1, warmups = 1)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @Threads(8)
