@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 
 public class StreamConcept {
-    static List<People> girls = People.getSample(100000);
+    static List<People> girls = People.getSample(100);
     public StreamConcept(){
 
     }
@@ -73,16 +73,16 @@ public class StreamConcept {
     @Fork(value = 1, warmups = 1)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @Threads(8)
-    public void parallelStream(){
-        List<People> treeOrderAlfa = girls.parallelStream().sorted(Comparator.reverseOrder()).toList();
+    public List<People> parallelStream(){
+        return girls.parallelStream().sorted(Comparator.reverseOrder()).toList();
     }
     @Benchmark
     @BenchmarkMode(Mode.SingleShotTime)
     @Fork(value = 1, warmups = 1)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @Threads(8)
-    public void normalStream(){
-        List<People> treeOrderAlfa = girls.stream().sorted(Comparator.reverseOrder()).toList();
+    public List<People> normalStream(){
+        return girls.stream().sorted(Comparator.reverseOrder()).toList();
     }
 
 
