@@ -1,6 +1,7 @@
 package org.example;
 
 import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.infra.Blackhole;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -10,14 +11,14 @@ import java.util.stream.Stream;
 
 
 public class StreamConcept {
-    static List<People> girls = People.getSample(100);
+
     public StreamConcept(){
 
     }
 
     public static void main (String [] args){
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
-        List<People> girls = People.getSample();
+        List<People> girls = People.getSample(5);
 
         List<Integer> twoEvenSquares =   numbers.stream()
                 .filter(n -> {
@@ -68,22 +69,23 @@ public class StreamConcept {
         System.out.print("\n parallel Elapsed: "+elapsed);
     }
 ;
-    @Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @Fork(value = 1, warmups = 1)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @Threads(8)
-    public List<People> parallelStream(){
-        return girls.parallelStream().sorted(Comparator.reverseOrder()).toList();
-    }
-    @Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @Fork(value = 1, warmups = 1)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @Threads(8)
-    public List<People> normalStream(){
-        return girls.stream().sorted(Comparator.reverseOrder()).toList();
-    }
+//    @Benchmark
+//    @BenchmarkMode(Mode.SingleShotTime)
+//    @Fork(value = 1, warmups = 1)
+//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+//    @Threads(8)
+//    public void parallelStream(Blackhole bh){
+//        bh.consume(girls.parallelStream().filter(p -> p.getName().startsWith("Ana")).filter(p -> p.getAge()>22).sorted(Comparator.comparingInt(People::getAge)).sorted(Comparator.reverseOrder()).toList());
+//    }
+
+//    @Benchmark
+//    @BenchmarkMode(Mode.SingleShotTime)
+//    @Fork(value = 1, warmups = 1)
+//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+//    @Threads(8)
+//    public void normalStream(Blackhole bh){
+//        bh.consume(girls.stream().filter(p -> p.getName().startsWith("Ana")).filter(p -> p.getAge()>22).sorted(Comparator.comparingInt(People::getAge)).sorted(Comparator.reverseOrder()).toList());
+//    }
 
 
 
