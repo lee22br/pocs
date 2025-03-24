@@ -28,13 +28,3 @@ Benchmark (single Shot)
 | stream         | 100   |20,655|  ms/op|
 | parallelStream | 1000000 |24,663|  ms/op|
 | stream         | 1000000 |21,161|  ms/op|
-
-
-
-| Benchmark      | Size  | Score    | Units  |
-|----------------|-------|----------|--------|
-| parallelStream | 100   | 5240,675 | ops/ms |
-| stream         | 100   | 8469,540 | ops/ms  |
-| parallelStream | 1000000 | 5121,037 | ops/ms  |
-| stream         | 1000000 | 8630,076 | ops/ms |
-
