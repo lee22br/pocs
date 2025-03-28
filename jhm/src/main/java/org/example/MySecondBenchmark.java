@@ -18,7 +18,7 @@ import java.util.stream.IntStream;
 @Measurement(iterations = 1)
 @State(Scope.Thread)
 public class MySecondBenchmark {
-    @Param({"100", "1000000", "10000000", "50000000", "100000000"})
+    @Param({"100000000"})
     private int size;
     private List<Integer> data;
 
@@ -29,11 +29,20 @@ public class MySecondBenchmark {
     }
 
     private List<Double> computeParallel() {
-        return data.parallelStream().map(Math::sin).collect(Collectors.toList());
+        return data.parallelStream()
+                        .map(Math::sqrt)
+                        .map(Math::sin)
+                        .map(Math::exp)
+                        .collect(Collectors.toList());
     }
 
     private List<Double> compute() {
-        return data.stream().map(Math::sin).collect(Collectors.toList());
+
+        return data.stream()
+                .map(Math::sqrt)
+                .map(Math::sin)
+                .map(Math::exp)
+                .collect(Collectors.toList());
     }
 
     /*
@@ -56,7 +65,7 @@ public class MySecondBenchmark {
 
     public static void main(String[] args) throws IOException, RunnerException {
         Options opt = new OptionsBuilder()
-                .include(org.example.MyFirstBenchmark.class.getSimpleName())
+                .include(org.example.MySecondBenchmark.class.getSimpleName())
                 .warmupIterations(0)
                 .measurementIterations(1)
                 .forks(1)

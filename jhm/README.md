@@ -4,27 +4,35 @@
 
 Benchmark (single Shot)
 
-| Benchmark      |         Size |      Score | Units |
-|----------------|-------------:|-----------:|-------| 
-| parallelStream |          100 |     11,851 | ms/op |
-| stream         |          100 |     05,879 | ms/op |
-| parallelStream |    1.000.000 |    293,634 | ms/op |
-| stream         |    1.000.000 |    126,254 | ms/op |
-| parallelStream |   10.000.000 |    789,586 | ms/op |
-| stream         |   10.000.000 |    543,037 | ms/op |
-| parallelStream |   50.000.000 |  1.584,264 | ms/op |
-| stream         |   50.000.000 |  2.427,566 | ms/op |
-| parallelStream |  100.000.000 |  2.963,190 | ms/op |
-| stream         |  100.000.000 |  4.532,455 | ms/op |
+| Benchmark      |      Size |    Score | Units |
+|:---------------|----------:|---------:|-------| 
+| parallelStream |       100 |   11,851 | ms/op |
+| stream         |       100 |   05,879 | ms/op |
+| parallelStream |   1000000 |  293,634 | ms/op |
+| stream         |   1000000 |  126,254 | ms/op |
+| parallelStream |  10000000 |  789,586 | ms/op |
+| stream         |  10000000 |  543,037 | ms/op |
+| parallelStream |  50000000 | 1584,264 | ms/op |
+| stream         |  50000000 | 2427,566 | ms/op |
+| parallelStream | 100000000 | 2963,190 | ms/op |
+| stream         | 100000000 | 4532,455 | ms/op |
 
 
 ## Problem to Solve:
-###  Give a List integer numbers calc o sin and return the list 
+###  Give a List integer numbers calc o sqrt, sin, exp and return the list 
 Benchmark (single Shot)
 
-| Benchmark      |       Size |   Score | Un its |
-|----------------|-----------:|--------:|--------|
-| parallelStream |        100 |  25,703 | ms/op  |
-| stream         |        100 |  20,655 | ms/op  |
-| parallelStream |  1.000.000 |  24,663 | ms/op  |
-| stream         |  1.000.000 |  21,161 | ms/op  |
+| Benchmark      |     Size |    Score | Units |
+|:---------------|---------:|---------:|-------| 
+| parallelStream |      100 |    5,844 | ms/op |
+| stream         |      100 |    2,211 | ms/op |
+| parallelStream |  1000000 |   93,154 | ms/op |
+| stream         |  1000000 |  122,074 | ms/op |
+| parallelStream | 10000000 |  696,842 | ms/op |
+| stream         | 10000000 | 1164,534 | ms/op |
+| parallelStream | 50000000 | 3326,688 | ms/op |
+| stream         | 50000000 | 4626,500 | ms/op |
+| 
+
+
+
