@@ -32,7 +32,9 @@ Benchmark (single Shot)
 | stream         | 10000000 | 1164,534 | ms/op |
 | parallelStream | 50000000 | 3326,688 | ms/op |
 | stream         | 50000000 | 4626,500 | ms/op |
-| 
+
+## Conclusion 
+When the problem requires interaction between the stream data, it is a problem that is not very parallelizable, so the benefit of using ParallelStream only occurs at 100 million items. However, when the problem can be solved with little or no interaction between the stream data, it is a highly parallelizable problem, so using ParallelStream is already an advantage at around 1 million items.
 
 
 
