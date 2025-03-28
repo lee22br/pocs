@@ -17,7 +17,11 @@ public class OptionalConcept {
         System.out.println(empty);
         Optional<String> value = Optional.of(words[2]);
         System.out.println(value);
-
+        //System.out.println("optional: "+Optional.of(words[1]));
+        Optional<String[]> value2 = Optional.of(words);
+        //System.out.println("optional: "+value2.get()[1].toLowerCase());
+        System.out.println("optional null: "+Optional.ofNullable(value2.get()[1]));
+        System.out.println("optional value: "+Optional.ofNullable(value2.get()[2]));
     }
 
 }
