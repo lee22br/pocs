@@ -14,16 +14,11 @@ import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Measurement(iterations = 10)
 @State(Scope.Thread)
 public class OptionalBenchmark {
 
     private final String[] names = {"Ana","Bruna","Cintia","Daniele","Fernanda","Ana Clara", "Ana Bia", "Ana Maria"};
-    @Setup
-    public void setup()
-    {
 
-    }
     public String getRandomName() {
         Random random = new Random();
         int index = random.nextInt(8);
@@ -51,7 +46,6 @@ public class OptionalBenchmark {
     public void orElseGet(Blackhole bh) {
         bh.consume(orElseGetBenchmark());
     }
-
 
     public static void main (String[] args) throws IOException, RunnerException {
         Options opt = new OptionsBuilder()
