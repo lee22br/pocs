@@ -60,7 +60,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>MyFirstBenchmark</mainClass>
+                    <mainClass>OptionalBenchmark</mainClass>
                     <systemProperties>
                         <systemProperty>
                             <key>java.class.path</key>
