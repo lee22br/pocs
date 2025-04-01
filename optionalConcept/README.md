@@ -8,7 +8,7 @@ Optional.of()
 Optional.ofNullable()  
 Optional.empty()
 
-### orElse() vs or orElseGet()
+### orElse() vs or orElseGet():
 Analyzing only the functionality and response, the two methods seem to do the same thing, but the difference is perceived in the performance.  
 
 Benchmark (Average Time)
