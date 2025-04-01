@@ -1,5 +1,9 @@
-Sandbox area to study and understand news concepts!
+# Sandbox area to study and understand news concepts!
 
-Lambda in Java 8
+## Lambda in Java 8
 
-Streams
+## Streams
+
+## jhm Benchmarks
+
+## Optional
