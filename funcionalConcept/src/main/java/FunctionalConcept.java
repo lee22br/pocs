@@ -12,6 +12,17 @@ public class FunctionalConcept {
         for (int j : array) {
             print(cube, j);
         }
+        functionComposeExample(143);
     }
+
+    //Function Compose
+    private static void functionComposeExample(int num){
+        Function<Integer, String> intToString = Object::toString;
+        Function<String, String> quote = s -> "'" + s + "'";
+        Function<Integer, String> quoteIntToString = quote.compose(intToString);
+        System.out.println(quoteIntToString.apply(num));
+    }
+
+
 
 }
