@@ -12,7 +12,7 @@ public class FunctionalConcept {
         for (int j : array) {
             print(cube, j);
         }
-        functionComposeExample(143);
+        functionComposeExample(14312);
     }
 
     //Function Compose
