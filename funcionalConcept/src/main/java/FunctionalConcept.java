@@ -1,3 +1,5 @@
+package funcionalConcept.src.main.java;
+
 import java.util.function.Function;
 
 
