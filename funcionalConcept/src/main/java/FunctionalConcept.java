@@ -1,5 +1,5 @@
-package funcionalConcept.src.main.java;
-
+import java.util.Locale;
+import java.util.Objects;
 import java.util.function.Function;
 
 
@@ -14,15 +14,16 @@ public class FunctionalConcept {
         for (int j : array) {
             print(cube, j);
         }
-        functionComposeExample(14312);
+        functionComposeExample(122);
     }
 
     //Function Compose
-    private static void functionComposeExample(int num){
-        Function<Integer, String> intToString = Object::toString;
-        Function<String, String> quote = s -> "'" + s + "'";
-        Function<Integer, String> quoteIntToString = quote.compose(intToString);
-        System.out.println(quoteIntToString.apply(num));
+    private static void functionComposeExample(int number){
+        Function<Integer, Integer> squared = x -> x * x;
+        Function<Integer, Double> divByTwo = x -> (double) (x / 2);
+        Function<Double, String> format= s -> String.format(Locale.US, "%,.2f", s);
+        Function<Integer, String> squaredDiv2Format = format.compose(divByTwo).compose(squared);
+        System.out.println(squaredDiv2Format.apply(number));
     }
 
 
