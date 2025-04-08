@@ -22,7 +22,8 @@ public class FunctionalConcept {
         Function<Integer, Integer> squared = x -> x * x;
         Function<Integer, Double> divByTwo = x -> (double) (x / 2);
         Function<Double, String> format= s -> String.format(Locale.US, "%,.2f", s);
-        Function<Integer, String> squaredDiv2Format = format.compose(divByTwo).compose(squared);
+        Function<String, String> addSimbol= s -> "$ "+s;
+        Function<Integer, String> squaredDiv2Format = addSimbol.compose(format).compose(divByTwo).compose(squared);
         System.out.println(squaredDiv2Format.apply(number));
     }
 
